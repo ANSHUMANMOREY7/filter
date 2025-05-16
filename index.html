@@ -8,7 +8,7 @@
 <body>
     <h1>BOOKS</h1>
 
-    <select  id="options" >
+    <select  id="options" onchange="handleCategorySelect(event)" >
         <option value="">all</option>
         <option value="programming">programming</option>
         <option value="AI">AI</option>
@@ -96,6 +96,10 @@
            
         }
         RenderBooks(BOOKS);
+
+        function handleCategorySelect(e) {
+            
+        }
 
     </script>
 </body>
