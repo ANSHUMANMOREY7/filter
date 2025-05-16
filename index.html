@@ -8,7 +8,8 @@
 <body>
     <h1>BOOKS</h1>
 
-    <select  id="options" onchange="handleCategorySelect(event)" >
+    <select  id="options" onchange="HandleCategorySelect(event)" >
+        
         <option value="">all</option>
         <option value="programming">programming</option>
         <option value="AI">AI</option>
@@ -20,6 +21,7 @@
         <option value="security">security</option>
         <option value="computer science">computer Science</option>
         <option value="software engineering">software engineering</option>
+
     </select>
     
     <div id="books-container">
@@ -73,7 +75,7 @@
         ];
 
 
-        function RenderBooks() {
+        function RenderBooks(BOOKS) {
             const booksElement = document.getElementById("books-container");
 
             booksElement.innerHTML = "";
@@ -97,7 +99,26 @@
         }
         RenderBooks(BOOKS);
 
-        function handleCategorySelect(e) {
+        function HandleCategorySelect(e) {
+            const category = e.target.value ;
+
+            if ( category == "") {
+                   RenderBooks(BOOKS);             
+            }else
+                {
+                 const SelectElement = BOOKS.filter((bookObje)=>{
+
+                    if(bookObje.category == category) {
+                        
+                        return true;
+                    }else{
+                        return false;
+                    }
+
+
+                 })
+                 RenderBooks(SelectElement);
+            }
             
         }
 
