@@ -10,6 +10,7 @@
     <div id="books-container">
 
     </div>
+   
 
     <script>
          const BOOKS = [
@@ -58,8 +59,23 @@
 
 
         function RenderBooks() {
-            const booksElement = document.getElementById("book-container");
+            const booksElement = document.getElementById("books-container");
+
+            booksElement.innerHTML = "";
+
+            BOOKS.forEach((booksObj) => {
+                 booksElement.innerHTML += `
+             <div class="books-card">
+        
+                <span class="Books-heading">${booksObj.title}</span>
+
+             </div>
+            `
+            });
+
+           
         }
+        RenderBooks(BOOKS);
 
     </script>
 </body>
