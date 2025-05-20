@@ -159,6 +159,20 @@
                 })
                 RenderBooks(priceFilter);
 
+            }else if( minPrice.value && maxPrice.value){
+
+                const priceFilter = BOOKS.filter((bookObj)=>{
+
+                    if ( bookObj.price >= minPrice.value && bookObj.price <= maxPrice.value) {
+                        
+                        return true;
+
+                    }else{
+                        return false;
+                    }
+                });
+                RenderBooks(priceFilter);
+
             }
 
         }
