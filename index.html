@@ -135,8 +135,18 @@
             if (minPrice.value=="" && maxPrice.value=="") {
                 
                 RenderBooks(BOOKS);
-            }
+            }else if( minPrice.value && maxPrice.value ==""){
 
+                const priceFilter = BOOKS.filter((bookObj)=>{
+
+                    if (bookObj.price >= minPrice.value) {
+                        return true
+                    }else{
+                        return false
+                    }
+                });
+                RenderBooks(priceFilter);
+            }
         }
         
 
